@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".SignUp">
+
+    <EditText
+            android:hint="username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:id="@+id/name"/>
+
+    <EditText
+            android:hint="email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:textSize="20dp"
+            android:id="@+id/email"/>
+
+    <EditText
+            android:hint="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:textSize="20dp"
+            android:inputType="number"
+            android:id="@+id/number"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginTop="210dp"
+            android:ems="10"
+            android:hint="Password"
+            android:id="@+id/password1"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginTop="270dp"
+            android:ems="10"
+            android:hint="Re-type Password"
+            android:id="@+id/password2"/>
+    <Button
+            android:text="submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="330dp"
+            android:id="@+id/sumbit"/>
+
+
+
+</FrameLayout>
