@@ -2,6 +2,7 @@ package com.example.ctproject;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
@@ -50,4 +51,27 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public String getpass(String usename){
+        String pass = "";
+
+        String queryString = "SELECT * FROM " + USER_TABLE;
+                //+ " WHERE "+ USER_NAME + " = '"+usename+"'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()){
+            do{
+                pass = cursor.getString(3);
+            }while (cursor.moveToNext());
+        }else{
+            pass = "No values";
+        }
+        cursor.close();
+        db.close();
+
+        return pass;
+    }
+
 }

@@ -6,9 +6,16 @@
     <fragment android:id="@+id/login" android:name="com.example.ctproject.Login" android:label="fragment_login"
               tools:layout="@layout/fragment_login">
         <action android:id="@+id/action_login_to_signUp" app:destination="@id/signUp"/>
+        <action android:id="@+id/action_login_to_home2" app:destination="@id/home2"/>
     </fragment>
     <fragment android:id="@+id/signUp" android:name="com.example.ctproject.SignUp" android:label="fragment_sign_up"
               tools:layout="@layout/fragment_sign_up">
         <action android:id="@+id/action_signUp_to_login" app:destination="@id/login"/>
     </fragment>
+    <fragment android:id="@+id/home2" android:name="com.example.ctproject.home" android:label="fragment_home"
+              tools:layout="@layout/fragment_home">
+        <action android:id="@+id/action_home2_to_BDevices" app:destination="@id/BDevices"/>
+    </fragment>
+    <fragment android:id="@+id/BDevices" android:name="com.example.ctproject.BDevices"
+              android:label="fragment_b_devices" tools:layout="@layout/fragment_b_devices"/>
 </navigation>
