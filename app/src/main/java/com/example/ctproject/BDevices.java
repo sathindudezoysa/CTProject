@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -14,10 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class BDevices extends Fragment {
 
@@ -39,6 +37,8 @@ public class BDevices extends Fragment {
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         final List<String> ListElementsArrayList = new ArrayList<>(Arrays.asList(ListElements));
+        final Dictionary<String, String> dict = new Hashtable<String, String>();
+
         final ArrayAdapter<String> adapter = new ArrayAdapter<>
                 (getContext(), android.R.layout.simple_list_item_1, ListElementsArrayList);
         listview.setAdapter(adapter);
@@ -53,7 +53,7 @@ public class BDevices extends Fragment {
         if (pariedDevices.size() > 0){
             for (BluetoothDevice device: pariedDevices){
                 String deviceName = device.getName();
-                String deviceHarwareAddress = device.getAddress();
+                dict.put(deviceName, device.getAddress());
                 ListElementsArrayList.add(deviceName);
             }
         }
@@ -61,6 +61,10 @@ public class BDevices extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String device_address= dict.get(adapterView.getItemAtPosition(position));
+                Toast.makeText(getContext(), "Connecting to Bluetooth device", Toast.LENGTH_LONG).show();
+                CreateConncect createConnect = new CreateConncect(getContext(),bluetoothAdapter,device_address);
+                createConnect.start();
 
             }
         });

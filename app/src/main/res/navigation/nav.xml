@@ -15,7 +15,10 @@
     <fragment android:id="@+id/home2" android:name="com.example.ctproject.home" android:label="fragment_home"
               tools:layout="@layout/fragment_home">
         <action android:id="@+id/action_home2_to_BDevices" app:destination="@id/BDevices"/>
+        <action android:id="@+id/action_home2_to_warning" app:destination="@id/warning"/>
     </fragment>
     <fragment android:id="@+id/BDevices" android:name="com.example.ctproject.BDevices"
               android:label="fragment_b_devices" tools:layout="@layout/fragment_b_devices"/>
+    <fragment android:id="@+id/warning" android:name="com.example.ctproject.warning" android:label="fragment_warning"
+              tools:layout="@layout/fragment_warning"/>
 </navigation>
