@@ -8,28 +8,34 @@
 
     <EditText
             android:hint="username"
+            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:id="@+id/username"/>
 
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="90dp"
             android:ems="10"
-            android:hint="Password"
+            android:textSize="18dp"
+            android:hint="password"
             android:id="@+id/password"/>
     <Button
             android:text="login"
+            android:layout_marginLeft="10dp"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="140dp"
             android:id="@+id/userlogin"/>
     <Button
             android:text="signup"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"

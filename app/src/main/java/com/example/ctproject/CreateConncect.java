@@ -36,6 +36,10 @@ public class CreateConncect extends Thread{
         mmSocket = tmp;
     }
 
+    public static BluetoothSocket getMmSocket() {
+        return mmSocket;
+    }
+
     public void run() {
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (ActivityCompat.checkSelfPermission(getcontext, android.Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
@@ -55,7 +59,6 @@ public class CreateConncect extends Thread{
             }
         }
 
-        ConnectedThread connectedThread = new ConnectedThread(mmSocket);
-        connectedThread.start();
+
     }
 }

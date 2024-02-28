@@ -32,18 +32,16 @@ public class Login extends Fragment {
         userlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String pass = password.getText().toString();
-//                String name = username.getText().toString();
+                String pass = password.getText().toString();
+                String name = username.getText().toString();
 //                String dpass = dataBaseHelper.getpass(name);
-//                if(pass.equals(dpass)){
-//                    Toast.makeText(getContext(), "login successfull", Toast.LENGTH_LONG).show();
-//                    Navigation.findNavController(view).navigate(R.id.action_login_to_home2);
-//                }else {
-//                    Toast.makeText(getContext(), "Username or password does not match" + dpass, Toast.LENGTH_LONG).show();
-//                }
-//                Log.e("Error", dataBaseHelper.getpass("hello") );
-                Navigation.findNavController(view).navigate(R.id.action_login_to_home2);
-
+                if(pass.equals("1234")){
+                    Toast.makeText(getContext(), "login successfull", Toast.LENGTH_LONG).show();
+                    Navigation.findNavController(view).navigate(R.id.action_login_to_home2);
+                }else {
+                    Toast.makeText(getContext(), "Username or password does not match", Toast.LENGTH_LONG).show();
+                }
+//                Navigation.findNavController(view).navigate(R.id.action_login_to_home2);
             }
 
         });

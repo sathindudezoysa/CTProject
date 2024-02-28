@@ -2,6 +2,7 @@ package com.example.ctproject;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.navigation.Navigation;
 
 import java.util.*;
 
@@ -47,7 +49,6 @@ public class BDevices extends Fragment {
         if (ContextCompat.checkSelfPermission( getContext(),android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED )
         {
         }
-        Toast.makeText(getContext(), "Done", Toast.LENGTH_LONG).show();
 
         Set<BluetoothDevice> pariedDevices = bluetoothAdapter.getBondedDevices();
         if (pariedDevices.size() > 0){
@@ -65,6 +66,28 @@ public class BDevices extends Fragment {
                 Toast.makeText(getContext(), "Connecting to Bluetooth device", Toast.LENGTH_LONG).show();
                 CreateConncect createConnect = new CreateConncect(getContext(),bluetoothAdapter,device_address);
                 createConnect.start();
+
+
+                try {
+                    createConnect.join();
+                    BluetoothSocket mmsocket = CreateConncect.getMmSocket();
+
+                    if (mmsocket.isConnected())
+                    {
+                        ConnectedThread connectedThread = new ConnectedThread(mmsocket);
+                        connectedThread.start();
+                        Toast.makeText(getContext(), "Device Connected", Toast.LENGTH_LONG);
+
+                        Navigation.findNavController(view).navigate(R.id.action_BDevices_to_home2);
+                    }else {
+                        Toast.makeText(getContext(), "Can not connect to the device", Toast.LENGTH_LONG);
+                    }
+
+
+
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
 
             }
         });
