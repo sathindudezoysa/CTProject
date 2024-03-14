@@ -74,7 +74,7 @@ public class BDevices extends Fragment {
 
                     if (mmsocket.isConnected())
                     {
-                        ConnectedThread connectedThread = new ConnectedThread(mmsocket);
+                        ConnectedThread connectedThread = new ConnectedThread(mmsocket, getContext());
                         connectedThread.start();
                         Toast.makeText(getContext(), "Device Connected", Toast.LENGTH_LONG);
 

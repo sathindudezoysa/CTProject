@@ -13,25 +13,16 @@ public class Profile extends Fragment {
     private String name;
     private String user_email;
 
-    public Profile(float points, String username, String email) {
-        point = points;
-        name = username;
-        user_email = email;
-    }
+//    public Profile(float points, String username, String email) {
+//        point = points;
+//        name = username;
+//        user_email = email;
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        EditText username = view.findViewById(R.id.name);
-        EditText email  = view.findViewById(R.id.email);
-        EditText points  = view.findViewById(R.id.points);
-
-        username.setText(name);
-        email.setText(user_email);
-        points.setText(points.toString());
-
         return view;
     }
 }

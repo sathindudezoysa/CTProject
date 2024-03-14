@@ -2,6 +2,7 @@ package com.example.ctproject;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.navigation.Navigation;
 public class home extends Fragment {
 
     private int state = 0;
+    TextView status;
 
     public home() {
         // Required empty public constructor
@@ -22,6 +24,8 @@ public class home extends Fragment {
 
         Button connect = view.findViewById(R.id.connect);
         Button start = view.findViewById(R.id.start);
+        Button profile = view.findViewById(R.id.profile);
+//        status = view.findViewById(R.id.status);
 
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +47,13 @@ public class home extends Fragment {
                     start.setText("Start");
                     state = 0;
                 }
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_home2_to_profile);
             }
         });
 
